@@ -1,0 +1,110 @@
+/* styles.css or your-component.component.css */
+
+.calendar-container {
+    width: 100%;
+    height: -webkit-fill-available;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+}
+:host {
+    display: block;
+    height: 100%;
+    width: 100%;
+
+}
+
+:host ::ng-deep .fc {
+    width: 100%;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+}
+  
+:host ::ng-deep .fc .fc-view {
+    height: 100%;
+    width: 100%;
+
+}
+  
+:host ::ng-deep .fc .fc-toolbar {
+    background-color: transparent;
+    color: black;
+    padding: 10px;
+    
+}
+  
+:host ::ng-deep .fc .fc-toolbar-title {
+    color: black;
+    font-size: 22px;
+}
+  
+:host ::ng-deep .fc .fc-button {
+    background-color: #cec5c5;
+    cursor: pointer;
+    border-radius: 4px;
+    border: none;
+    color: black;
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+:host ::ng-deep .fc .fc-header-toolbar .fc-toolbar-chunk {
+    display: flex;
+    justify-content: space-between;
+}
+
+:host ::ng-deep .fc .fc-col-header {
+    width: 100% !important;
+}
+
+:host ::ng-deep .fc .fc-scrollgrid-sync-table{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+:host ::ng-deep .fc-daygrid-body{
+    width: 100% !important;
+}
+  
+:host ::ng-deep .fc .fc-col-header-cell {
+    background-color: transparent;
+    color: black;
+    font-size: 14px;
+    padding: 5px 0;
+    text-decoration: none;
+    width: 100%;
+
+}
+  
+:host ::ng-deep .fc .fc-col-header-cell-cushion {
+    color: black;
+    text-decoration: none;
+
+}
+  
+:host ::ng-deep .fc .fc-button:hover {
+    background-color: #9f9898;
+}
+  
+:host ::ng-deep .fc .fc-daygrid-event {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+    color: white;
+    font-size: 16px;
+}
+  
+:host ::ng-deep .fc .fc-daygrid-event:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+  
+:host ::ng-deep .custom-event {
+    background-color: #17a2b8; /* Custom event background color */
+    border-color: #17a2b8; /* Custom event border color */
+    color: white; /* Custom event text color */
+}
+
+  

@@ -1,0 +1,126 @@
+<form class="modal-container" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="modal-header">
+        <mat-icon (click)="onNoClick()">close</mat-icon>
+    </div>
+    <div class="modal-body">
+
+        <div class="project">
+            <div class="project-title">
+                <mat-icon>menu</mat-icon> 
+                {{projectData.name}}
+            </div>
+            <div class="type">
+                <mat-icon>radio_button_checked</mat-icon> 
+                Task
+            </div>
+
+        </div>
+
+        <div class="input">
+
+            <div class="form-group">
+                <label class="label">{{ 'Title' | translate }}</label>
+                <input type="text" id="title" formControlName="title" class="form-control" placeholder="{{ 'placeholder_title' | translate }}">
+            </div>
+
+            <div class="form-group">
+                <label class="label">{{ 'Description' | translate }}</label>
+                <textarea id="description" formControlName="description" class="form-control" placeholder="{{ 'placeholder_desc' | translate }}"></textarea>
+            </div>
+
+            <div class="group-row">
+
+                <div class="form-group">
+                    <label class="label">Status</label>
+                    <select id="status" formControlName="status" class="form-control" (change)="onStatusChange($event)">
+                        <option value="" disabled selected>{{ 'select_status' | translate }}</option>
+                        <option *ngFor="let status of statuses" [value]="status.id">
+                            {{ status.name }}
+                        </option>
+                    </select>
+                </div>
+
+                <input type="text" id="statusName" formControlName="statusName" class="form-control" hidden>
+
+                <div class="form-group">
+                    <label class="label">{{ 'Assignee' | translate }}</label>
+                    <select id="assigneeId" formControlName="assigneeId" class="form-control" (change)="onAssigneeChange($event)">
+                        <option value="" disabled selected>{{ 'select_user' | translate }}</option>
+                        <option *ngFor="let user of users" [value]="user.id">
+                            {{ user.username }}
+                        </option>
+                    </select>
+                </div>
+
+                <input type="text" id="assigneeName" formControlName="assigneeName" class="form-control" hidden>
+
+                <div class="form-group">
+                    <label class="label">{{ 'Due_Date' | translate }}</label>
+                    <input type="date" id="dueDate" formControlName="dueDate" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label class="label">{{ 'Priority' | translate }}</label>
+                    <select id="priority" formControlName="priority" class="form-control" (change)="onPriorityChange($event)">
+                        <option value="" disabled selected>{{ 'select_prirotiy' | translate }}</option>
+                        <option *ngFor="let _priority of priority" [value]="_priority.id">
+                            {{ _priority.name }}
+                        </option>
+                    </select>
+                </div>
+
+                <input type="text" id="priorityName" formControlName="priorityName" class="form-control" hidden>
+
+            </div>
+
+            <div class="form-group">
+                <label class="label">{{ 'Attachment' | translate }}</label>
+                <input style="width: 300px;" type="file" id="attachment" (change)="onFileSelected($event)" class="form-control">
+            </div>
+
+            <div class="form-group" hidden>
+                <label class="label">Project Id</label>
+                <input type="number" id="projectId" formControlName="projectId" class="form-control">
+            </div>
+
+            <div class="form-group" hidden>
+                <label class="label">Date Created</label>
+                <input type="text" id="dateCreated" formControlName="dateCreated" class="form-control">
+            </div>
+
+            <div class="form-group" hidden>
+                <label class="label">Created Id</label>
+                <input type="number" id="createdId" formControlName="createdId" class="form-control">
+            </div>
+
+            <div class="form-group" hidden>
+                <label class="label">Date Modified</label>
+                <input type="text" id="dateModified" formControlName="dateModified" class="form-control">
+            </div>
+
+            <div class="form-group" hidden>
+                <label class="label">Modified Id</label>
+                <input type="number" id="modifiedId" formControlName="modifiedId" class="form-control">
+            </div>
+
+            <input type="number" id="id" formControlName="id" class="form-control" hidden>
+
+            <div class="form-group" hidden>
+                <label class="label">{{ 'Comments' | translate }}</label>
+                <textarea type="number" id="comments" formControlName="comments" class="form-control"></textarea>
+            </div>
+
+            <div class="form-group" style="padding: 0 0 30px 0;">
+                <label class="label">{{ 'Add_Comment' | translate }}</label>
+                <div class="add-comment">
+                    <textarea type="number" id="commentInput" formControlName="commentInput" class="form-control" style="margin: 0;" [mention]="items" placeholder="{{ 'placeholder_comment' | translate }}"></textarea>
+                    <!-- <div class="send-button" style="background-color: #cec5c5; cursor: pointer; border-radius: 4px;">Send</div> -->
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-button">{{ 'submit' | translate }}</button>
+
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,55 @@
+.board-container{
+    display: flex;
+    gap: 60px;
+    /* justify-content: space-between; */
+    .board1, .board2, .board3, .board4{
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        /* gap: 10px; */
+        justify-content: start;
+        .board-header{
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 5px 0;
+        }
+        .board-body{
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            cursor: grab;
+            height: 100%;
+            .board-card{
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+                font-size: 12px;
+                padding: 10px;
+                .card-name{
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+                .board-card-part{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+
+        }
+    }    
+    .board1 .board-header {
+        border-top: 2px solid #ADD8E6; /* Light Blue for Todo */
+    }
+    .board2 .board-header {
+        border-top: 2px solid #FFA500; /* Orange for In Progress */
+    }
+    .board3 .board-header {
+        border-top: 2px solid #800080; /* Purple for In Review */
+    }
+    .board4 .board-header {
+        border-top: 2px solid #008000; /* Green for Done */
+    }
+}

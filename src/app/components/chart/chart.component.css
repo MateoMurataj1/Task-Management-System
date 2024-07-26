@@ -1,0 +1,26 @@
+:host {
+    display: block;
+    width: 100%;
+}
+  
+canvas {
+    width: 80% !important;
+    height: 50% !important;
+}
+
+.exportReport{
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    font-size: 12px;
+    gap: 7px;
+    margin: 2px 0;
+    background-color: #cec5c5;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    color: black;
+    border: none;
+    width: fit-content;
+    margin-left: auto;
+}

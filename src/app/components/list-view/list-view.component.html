@@ -1,0 +1,66 @@
+<div style="padding: 5px 20px;">
+    <div>
+        <input type="text" placeholder="{{ 'Filter_task' | translate }}" (input)="onFilterChange($event)" class="form-control"/>
+    </div>
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th (click)="onSortChange('title')">
+                    {{ 'Name' | translate }}
+                    <mat-icon *ngIf="isSortedAsc('title')">arrow_drop_up</mat-icon>
+                    <mat-icon *ngIf="isSortedDesc('title')">arrow_drop_down</mat-icon>
+                    <mat-icon *ngIf="!isSortedDesc('title') && !isSortedAsc('title')">unfold_more</mat-icon>
+                </th>
+                <th (click)="onSortChange('statusName')">
+                    Status
+                    <mat-icon *ngIf="isSortedAsc('statusName')">arrow_drop_up</mat-icon>
+                    <mat-icon *ngIf="isSortedDesc('statusName')">arrow_drop_down</mat-icon>
+                    <mat-icon *ngIf="!isSortedDesc('statusName') && !isSortedAsc('statusName')">unfold_more</mat-icon>
+                </th>
+                <th (click)="onSortChange('assigneeName')">
+                    {{ 'Assignee' | translate }}
+                    <mat-icon *ngIf="isSortedAsc('assigneeName')">arrow_drop_up</mat-icon>
+                    <mat-icon *ngIf="isSortedDesc('assigneeName')">arrow_drop_down</mat-icon>
+                    <mat-icon *ngIf="!isSortedDesc('assigneeName') && !isSortedAsc('assigneeName')">unfold_more</mat-icon>
+                </th>
+                <th (click)="onSortChange('dueDate')">
+                    {{ 'Due_Date' | translate }}
+                    <mat-icon *ngIf="isSortedAsc('dueDate')">arrow_drop_up</mat-icon>
+                    <mat-icon *ngIf="isSortedDesc('dueDate')">arrow_drop_down</mat-icon>
+                    <mat-icon *ngIf="!isSortedDesc('dueDate') && !isSortedAsc('dueDate')">unfold_more</mat-icon>
+                </th>
+                <th (click)="onSortChange('priorityName')">
+                    {{ 'Priority' | translate }}
+                    <mat-icon *ngIf="isSortedAsc('priorityName')">arrow_drop_up</mat-icon>
+                    <mat-icon *ngIf="isSortedDesc('priorityName')">arrow_drop_down</mat-icon>
+                    <mat-icon *ngIf="!isSortedDesc('priorityName') && !isSortedAsc('priorityName')">unfold_more</mat-icon>
+                </th>
+                <th (click)="onSortChange('dateCreated')">
+                    {{ 'Date_Created' | translate }}
+                    <mat-icon *ngIf="isSortedAsc('dateCreated')">arrow_drop_up</mat-icon>
+                    <mat-icon *ngIf="isSortedDesc('dateCreated')">arrow_drop_down</mat-icon>
+                    <mat-icon *ngIf="!isSortedDesc('dateCreated') && !isSortedAsc('dateCreated')">unfold_more</mat-icon>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (task of filteredTasks; track $index) {
+                <tr>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.statusName }}</td>
+                    <td>{{ task.assigneeName }}</td>
+                    <td>{{ task.dueDate | date }}</td>
+                    <td>{{ task.priorityName }}</td>
+                    <td>{{ task.dateCreated | date }}</td>
+                    <td>
+                        <mat-icon style="color: #3A5AFF;" (click)="openDialog(task)">edit</mat-icon>
+                        <mat-icon style="color: #FA8072;" (click)="deleteTask(task)">delete</mat-icon>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        
+</div>

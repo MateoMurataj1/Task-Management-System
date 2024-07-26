@@ -1,0 +1,107 @@
+
+
+<mat-toolbar>
+    <span>Task Management</span>
+    <div style="display: flex; gap: 30px;">
+        <select #langSelect class="form-select" (change)="translate.use(langSelect.value)">
+            <option value="en">En</option>
+            <option value="al">Al</option>
+        </select>
+        <button class="logout-button" (click)="logout()">{{ 'Logout' | translate }}</button>
+    </div>
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+
+        <div class="container">
+            <div class="projects">
+                <div class="project-name">
+                    <mat-icon>folder_open</mat-icon>
+                    {{ 'Projects' | translate }}
+                </div>
+                @for (project of projects; track $index) {
+                    <div class="project-list"  [ngClass]="selectedProject?.id == project?.id ? 'project-list-active' : ''" (click)="onProjectClick(project)">
+                        <mat-icon>list</mat-icon>
+                        {{project.name}}
+                    </div>
+                }
+
+            </div>
+            <div class="user">
+              <mat-icon>account_circle</mat-icon>
+              <div>
+                <div>{{ 'Username' | translate }}: <b>{{username}}</b></div>
+                <div>{{ 'Role' | translate }}: <b>{{role}}</b></div>
+              </div>
+            </div>
+        </div>
+
+    </mat-drawer>
+    <mat-drawer-content>
+        <div class="upper">
+            @if(selectedProject != null){
+                <div class="project-title">{{selectedProject.name}}
+                    <div class="project-description">{{selectedProject.description}}</div>
+                </div>
+
+                <button [disabled]="role !== 'admin'" class="create-button btn btn-primary " (click)="openDialog()">{{ 'CREATE_TASK' | translate }}</button>
+            }
+            @else {
+                <div class="project-title" style="font-weight: 500; font-size: 16px;">--{{ 'select_project' | translate }}--</div>
+            }
+
+        </div>
+
+        <div class="lower">
+
+            <mat-tab-group animationDuration="0ms" style="height: 100%;">
+                <mat-tab label="List">
+                    <ng-template mat-tab-label>
+                        <mat-icon class="custom-tab-icon">list</mat-icon>
+                        <span class="custom-tab-label">List</span>
+                    </ng-template>
+
+                    @if(selectedProject != null){
+                        <app-list-view [projectId]="selectedProject.id"></app-list-view>
+                    }
+
+
+                </mat-tab>
+                <mat-tab label="Board">
+                    <ng-template mat-tab-label>
+                        <mat-icon class="custom-tab-icon">view_quilt</mat-icon>
+                        <span class="custom-tab-label">Board</span>
+                    </ng-template>
+
+                    @if(selectedProject != null){
+                        <app-board-view [projectId]="selectedProject.id"></app-board-view>
+                    }
+
+                </mat-tab>
+                <mat-tab label="Calendar">
+                    <ng-template mat-tab-label>                         
+                        <mat-icon class="custom-tab-icon">calendar_today</mat-icon>
+                        <span class="custom-tab-label">Calendar</span>
+                    </ng-template>
+
+                    @if(selectedProject != null){
+                        <app-calendar-view [projectId]="selectedProject.id"></app-calendar-view>
+                    }
+
+                </mat-tab>
+                <mat-tab label="Chart">
+                    <ng-template mat-tab-label>                         
+                        <mat-icon class="custom-tab-icon">multiline_chart</mat-icon>
+                        <span class="custom-tab-label">Reports and Analytics</span>
+                    </ng-template>
+
+                    @if(selectedProject != null){
+                        <app-chart [projectId]="selectedProject.id"></app-chart>
+                    }
+
+                </mat-tab>
+            </mat-tab-group>
+
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

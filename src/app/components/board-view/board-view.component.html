@@ -1,0 +1,81 @@
+<div style="padding: 15px 20px;">
+
+    <div class="board-container">
+
+        <div class="board1">
+
+            <div class="board-header">{{ "TO_DO" | translate }}</div>
+            <div class="board-body" (dragover)="onDragOver($event)" (drop)="onDrop($event, '1', 'To Do')">
+                @for (task of filterTasks("1"); track $index) {
+                    <div class="board-card" draggable="true" (dragstart)="onDragStart(task)" (click)="openDialog(task)">
+
+                        <div class="card-description">{{task.description}}</div>
+                        <div class="card-name">{{task.title}}</div>
+                        <div class="board-card-part">
+                            <div class="card-assignee">{{task.assigneeName}}</div>
+                            <div class="card-date">{{getCurrentDate(task.dueDate) | date: 'MMM d, y'}}</div>
+                        </div>
+                        <div class="card-priority">{{task.priorityName}}</div>
+                        
+                    </div>    
+                }
+            </div>
+        </div>
+        <div class="board2">
+            <div class="board-header">{{ "IN_PROGRESS" | translate }}</div>
+            <div class="board-body" (dragover)="onDragOver($event)" (drop)="onDrop($event, '2', 'In Progress')">
+                @for (task of filterTasks("2"); track $index) {
+                    <div class="board-card" draggable="true" (dragstart)="onDragStart(task)" (click)="openDialog(task)">
+
+                        <div class="card-description">{{task.description}}</div>
+                        <div class="card-name">{{task.title}}</div>
+                        <div class="board-card-part">
+                            <div class="card-assignee">{{task.assigneeName}}</div>
+                            <div class="card-date">{{getCurrentDate(task.dueDate) | date: 'MMM d, y'}}</div>
+                        </div>
+                        <div class="card-priority">{{task.priorityName}}</div>
+                        
+                    </div>    
+                }
+            </div>
+        </div>
+        <div class="board3">
+            <div class="board-header">{{ "IN_REVIEW" | translate }}</div>
+            <div class="board-body" (dragover)="onDragOver($event)" (drop)="onDrop($event, '3', 'In Review')">
+                @for (task of filterTasks("3"); track $index) {
+                    <div class="board-card" draggable="true" (dragstart)="onDragStart(task)" (click)="openDialog(task)">
+
+                        <div class="card-description">{{task.description}}</div>
+                        <div class="card-name">{{task.title}}</div>
+                        <div class="board-card-part">
+                            <div class="card-assignee">{{task.assigneeName}}</div>
+                            <div class="card-date"> {{getCurrentDate(task.dueDate) | date: 'MMM d, y'}}</div>
+                        </div>
+                        <div class="card-priority">{{task.priorityName}}</div>
+                        
+                    </div>    
+                }
+            </div>
+        </div>
+        <div class="board4">
+            <div class="board-header">{{ "DONE" | translate }}</div>
+            <div class="board-body" (dragover)="onDragOver($event)" (drop)="onDrop($event, '4', 'Done')">
+                @for (task of filterTasks("4"); track $index) {
+                    <div class="board-card" draggable="true" (dragstart)="onDragStart(task)" (click)="openDialog(task)">
+
+                        <div class="card-description">{{task.description}}</div>
+                        <div class="card-name">{{task.title}}</div>
+                        <div class="board-card-part">
+                            <div class="card-assignee">{{task.assigneeName}}</div>
+                            <div class="card-date">{{getCurrentDate(task.dueDate) | date: 'MMM d, y'}}</div>
+                        </div>
+                        <div class="card-priority">{{task.priorityName}}</div>
+                        
+                    </div>    
+                }
+            </div>
+        </div>
+
+    </div>
+
+</div>
