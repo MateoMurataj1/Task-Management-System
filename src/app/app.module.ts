@@ -38,6 +38,7 @@ import { InMemoryDataService } from './services/in-memory-data-service.service';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -85,7 +86,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       provide: TranslateLoader,
       useFactory: HttpLoaderFactory,
       deps: [HttpClient]}
-    })
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+
   ],
   providers: [
     provideClientHydration(),

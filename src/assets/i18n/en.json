@@ -30,5 +30,11 @@
   "Filter_task": "Filter tasks...",
   "Created_by": "Created by",
   "Uploaded_File": "Uploaded File",
-  "View_Attachment": "View Attachment"
+  "View_Attachment": "View Attachment",
+  "List": "List",
+  "Board": "Board",
+  "Calendar": "Calendar",
+  "Reports_Analytics": "Reports and Analytics",
+  "Task_Management": "Task Management"
+
 }

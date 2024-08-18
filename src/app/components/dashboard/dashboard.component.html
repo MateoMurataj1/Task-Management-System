@@ -1,7 +1,7 @@
 
 
 <mat-toolbar>
-    <span>Task Management</span>
+    <span>{{ 'Task_Management' | translate}}</span>
     <div style="display: flex; gap: 30px;">
         <select #langSelect class="form-select" (change)="translate.use(langSelect.value)">
             <option value="en">En</option>
@@ -58,7 +58,7 @@
                 <mat-tab label="List">
                     <ng-template mat-tab-label>
                         <mat-icon class="custom-tab-icon">list</mat-icon>
-                        <span class="custom-tab-label">List</span>
+                        <span class="custom-tab-label">{{ 'List' | translate}}</span>
                     </ng-template>
 
                     @if(selectedProject != null){
@@ -70,7 +70,7 @@
                 <mat-tab label="Board">
                     <ng-template mat-tab-label>
                         <mat-icon class="custom-tab-icon">view_quilt</mat-icon>
-                        <span class="custom-tab-label">Board</span>
+                        <span class="custom-tab-label">{{ 'Board' | translate}}</span>
                     </ng-template>
 
                     @if(selectedProject != null){
@@ -81,7 +81,7 @@
                 <mat-tab label="Calendar">
                     <ng-template mat-tab-label>                         
                         <mat-icon class="custom-tab-icon">calendar_today</mat-icon>
-                        <span class="custom-tab-label">Calendar</span>
+                        <span class="custom-tab-label">{{ 'Calendar' | translate}}</span>
                     </ng-template>
 
                     @if(selectedProject != null){
@@ -92,7 +92,7 @@
                 <mat-tab label="Chart">
                     <ng-template mat-tab-label>                         
                         <mat-icon class="custom-tab-icon">multiline_chart</mat-icon>
-                        <span class="custom-tab-label">Reports and Analytics</span>
+                        <span class="custom-tab-label">{{ 'Reports_Analytics' | translate}}</span>
                     </ng-template>
 
                     @if(selectedProject != null){

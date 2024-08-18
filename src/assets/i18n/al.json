@@ -30,5 +30,11 @@
   "Filter_task": "Filtro task...",
   "Created_by": "Krijuar nga",
   "Uploaded_File": "File i ngarkuar",
-  "View_Attachment": "Shiko File"
+  "View_Attachment": "Shiko File",
+  "List": "Listë",
+  "Board": "Bord",
+  "Calendar": "Kalendar",
+  "Reports_Analytics": "Raportet dhe Analizat",
+  "Task_Management": "Menaxhimi i detyrave"
+
 }
